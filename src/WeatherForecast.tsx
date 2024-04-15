@@ -22,6 +22,9 @@ interface WeatherData {
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
+const kelvinToCelsius = (temp: number): number => {
+  return temp - 273.15;
+};
 
 
 interface ForeCastProps {
@@ -74,9 +77,10 @@ const WeatherForecast:React.FC<ForeCastProps> = ({ city }) => {
             title={new Date(forecast.dt * 1000).toLocaleDateString("en-US", {
               weekday: "long",
             })}
-            num={`${Math.round((forecast.main.temp))}°C`}
-            min={Math.round((forecast.main.temp_min))}
-            max={Math.round((forecast.main.temp_max))}
+           num={`${kelvinToCelsius(Math.round((forecast.main.temp))).toFixed(1)}°C`}
+           min={parseFloat(kelvinToCelsius(Math.round((forecast.main.temp_min))).toFixed(1))}
+           max={parseFloat(kelvinToCelsius(Math.round((forecast.main.temp_max))).toFixed(1))}
+
             desc={forecast.weather[0].description}
           >
             <div className="mx-4 py-4">

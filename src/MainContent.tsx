@@ -111,7 +111,7 @@ const MainContent:React.FC<MainProps> = ({ city }) => {
        </div>
        </div>
        <div className="my-5 gap-10 justify-center">
-       <div className="bg-darkblue rounded-xl p-6 flex flex-col justify-between">
+       <div className="bg-darkblue rounded-xl p-8 flex flex-col justify-between">
        <div className="mx-4 ">
                <span className='font-bold text-xl'> {currentWeather.weather[0].description.charAt(0).toUpperCase() + currentWeather.weather[0].description.slice(1).toLowerCase()}</span>
                   <img
@@ -158,11 +158,11 @@ const MainContent:React.FC<MainProps> = ({ city }) => {
           <LargeCard title="Air Pressure" num={`${currentWeather.main.pressure} hPa`} desc="" />
           <LargeCard title="Dew Point" num={`${(Math.round(currentWeather.main.temp)).toFixed(2)} °C`} desc="" />
           <LargeCard title="Sunrise Time" num={`${new Date(currentWeather.sys.sunrise * 1000).toLocaleTimeString()}`} desc="">
-            <img src='/images/sunrise.svg' alt="Sunrise" className="w-12 h-12" />
+            <img src='/images/sunrise.svg' alt="Sunrise" className="w-12 h-12 ml-3" />
           </LargeCard>
 
          <LargeCard title="Sunset Time" num={`${new Date(currentWeather.sys.sunset * 1000).toLocaleTimeString()}`} desc="">
-            <img src='/images/sunset.svg' alt="Sunset" className="w-12 h-12" />
+            <img src='/images/sunset.svg' alt="Sunset" className="w-12 h-12 ml-3" />
           </LargeCard>
 
         </div>
