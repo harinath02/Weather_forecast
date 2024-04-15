@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
 interface SearchLocationProps {

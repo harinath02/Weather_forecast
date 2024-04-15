@@ -22,12 +22,8 @@ interface WeatherData {
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
-console.log(API_KEY)
 
 
-const kelvinToCelsius = (temp: number) => {
-  return temp - 273.15;
-};
 interface ForeCastProps {
   city:string
 }
