@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+
 
 interface SearchLocationProps {
   onClose: () => void;
@@ -67,7 +67,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
               </tr>
             </thead>
       <div className="scbar w-full h-[680px] overflow-y-auto">
-        {/* <PerfectScrollbar style={{ height: 400 }}> */}
+     
           <table className="table-auto w-full md:w-auto">
            
             <tbody>
@@ -87,7 +87,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
               ))}
             </tbody>
           </table>
-        {/* </PerfectScrollbar> */}
+   
       </div>
     </div>
   );
