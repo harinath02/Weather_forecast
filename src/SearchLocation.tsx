@@ -39,7 +39,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
   );
 
   return (
-    <div className="text-gray-150 m-4 md:m-12 lg:m-20 xl:m-24 2xl:m-32 rounded-lg p-8 w-[450px] bg-darkblue">
+    <div className="text-gray-150 m-4 md:m-12 lg:m-20 xl:m-24 2xl:m-32 rounded-lg p-8 w-[450px] h-[860px] bg-darkblue">
       <div className="flex justify-end">
         <button className="text-2xl text-gray-150" onClick={onClose}>
           <i className="fas fa-times"></i>
@@ -59,7 +59,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
         </button>
       </div>
 
-      <div className="w-full overflow-hidden">
+      <div className="w-full overflow-hidden h-[680px]">
 
       <thead>
               <tr>
@@ -69,7 +69,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
                 {/* <th className="px-4 py-2 text-left">Population</th> */}
               </tr>
             </thead>
-        <Scrollbars style={{ width: '100%', height: '650px' }}>
+      
           <table className="table-auto w-full md:w-auto">
           
             <tbody>
@@ -90,7 +90,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
               ))}
             </tbody>
           </table>
-        </Scrollbars>
+   
       </div>
     </div>
   );
