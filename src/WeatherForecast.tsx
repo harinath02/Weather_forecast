@@ -53,6 +53,7 @@ const WeatherForecast:React.FC<ForeCastProps> = ({ city }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, [city]);
 
   if (loading) {

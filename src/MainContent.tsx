@@ -55,7 +55,7 @@ const MainContent:React.FC<MainProps> = ({ city }) => {
         setError(error.message);
         setLoading(false);
         })
-       
+       console.log(response)
       } catch (error:any) {
         setError(error.message);
         setLoading(false);
@@ -63,6 +63,7 @@ const MainContent:React.FC<MainProps> = ({ city }) => {
     };
 
     fetchWeather();
+    // eslint-disable-next-line
   }, [city]);
 
   if (loading) {
