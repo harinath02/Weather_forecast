@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 interface SearchLocationProps {
   onClose: () => void;
 }
@@ -39,7 +38,7 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
   );
 
   return (
-    <div className="text-gray-150 m-4 md:m-12 lg:m-20 xl:m-24 2xl:m-32 rounded-lg p-8 w-[450px] h-[860px] bg-darkblue">
+    <div className="text-gray-150 md:m-12 lg:m-20 xl:m-24 2xl:m-32 rounded-lg p-8 w-full max-w-lg h-full bg-darkblue">
       <div className="flex justify-end">
         <button className="text-2xl text-gray-150" onClick={onClose}>
           <i className="fas fa-times"></i>
@@ -55,39 +54,37 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
         />
         <button className="bg-blue-500 text-white py-3 px-5 rounded hover:bg-blue-600 focus:outline-none">
           <Link to={`/${searchTerm}`}>
-            <p> Search</p>
+            <p>Search</p>
           </Link>
         </button>
       </div>
-      <thead>
-              <tr>
-                <th className="px-3 py-2 text-left">City Name</th>
-                <th className="px-5 pl-10 py-2 text-left">Country</th>
-                <th className="px-8 text-left">Timezone</th>
+
+      <div className="overflow-auto max-h-[680px]">
+        <table className="table-auto w-full">
+          <thead>
+            <tr>
+              <th className="px-3 py-2 text-left">City Name</th>
+              <th className="px-5 py-2 text-left">Country</th>
+              <th className="px-8 py-2 text-left">Timezone</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredCities.map((city, index) => (
+              <tr key={index}>
+                <td
+                  onClick={() => console.log(city.name)}
+                  className="border px-4 py-2 cursor-pointer hover:bg-gray-700"
+                >
+                  <Link to={`/${city.name}`}>
+                    <p>{city.name}</p>
+                  </Link>
+                </td>
+                <td className="border px-4 py-2">{city.cou_name_en}</td>
+                <td className="border px-4 py-2">{city.timezone}</td>
               </tr>
-            </thead>
-      <div className="scbar w-full h-[680px] overflow-y-auto">
-     
-          <table className="table-auto w-full md:w-auto">
-           
-            <tbody>
-              {filteredCities.map((city, index) => (
-                <tr key={index}>
-                  <td
-                    onClick={() => console.log(city.name)}
-                    className="border px-4 py-2 cursor-pointer hover:bg-gray-700"
-                  >
-                    <Link to={`/${city.name}`}>
-                      <p>{city.name}</p>
-                    </Link>
-                  </td>
-                  <td className="border px-4 py-2">{city.cou_name_en}</td>
-                  <td className="border px-4 py-2">{city.timezone}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-   
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

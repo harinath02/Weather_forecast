@@ -94,38 +94,35 @@ const MainContent:React.FC<MainProps> = ({ city }) => {
           &deg;{isCelsius ? "C" : "F" }
         </button>
       </div>
-     
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-5 justify-center">
-      <div className="my-5 gap-10 justify-center">
-        <div className="bg-darkblue rounded-xl p-8 flex flex-col justify-between">
-              <div className="mx-4">
-                  <h4 className="text-white text-xl font-semibold">{new Date(currentWeather.dt * 1000).toLocaleDateString("en-US", {
-                  weekday: "long",
-                })}</h4> {city}
-                  <p className="text-gray-250"></p>
-                   <p className="text-gray-250 text-3xl mt-4 mb-2">{isCelsius ? `${Math.round(currentWeather.main.temp)}°C` : `${Math.round(celsiusToFahrenheit(currentWeather.main.temp))}°F`}</p>
-              {Math.round(currentWeather.main.temp_min) && Math.round(currentWeather.main.temp_max) && <p className="text-gray-250 font-bold">{isCelsius ? `${Math.round(currentWeather.main.temp_min)}° C / ${Math.round(currentWeather.main.temp_max)}° C` : `${Math.round(celsiusToFahrenheit(currentWeather.main.temp_min))}° F / ${Math.round(celsiusToFahrenheit(currentWeather.main.temp_max))}° F`}</p> }
-  
-              </div>
-           
-       </div>
-       </div>
-       <div className="my-5 gap-10 justify-center">
-       <div className="bg-darkblue rounded-xl p-8 flex flex-col justify-between">
-       <div className="mx-4 ">
-               <span className='font-bold text-xl'> {currentWeather.weather[0].description.charAt(0).toUpperCase() + currentWeather.weather[0].description.slice(1).toLowerCase()}</span>
-                  <img
-                    src={`/images/${currentWeather.weather[0].description}.svg`}
-                    alt={currentWeather.weather[0].description}
-                    className="w-20 h-20"
-                  />
-                      <p className='text-gray-150 font-bold'>Feels like: {currentWeather.main.feels_like} °C</p>
-              </div>
-              </div>
-      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-center">
+  <div className="my-5">
+    <div className="bg-darkblue rounded-xl p-8 flex flex-col justify-between">
+      <div className="mx-4">
+        <h4 className="text-white text-xl font-semibold">{new Date(currentWeather.dt * 1000).toLocaleDateString("en-US", {
+          weekday: "long",
+        })}</h4>
+        <p className="text-gray-250">{city}</p>
+        <p className="text-gray-250 text-3xl mt-4 mb-2">{isCelsius ? `${Math.round(currentWeather.main.temp)}°C` : `${Math.round(celsiusToFahrenheit(currentWeather.main.temp))}°F`}</p>
+        {Math.round(currentWeather.main.temp_min) && Math.round(currentWeather.main.temp_max) && (
+          <p className="text-gray-250 font-bold">{isCelsius ? `${Math.round(currentWeather.main.temp_min)}° C / ${Math.round(currentWeather.main.temp_max)}° C` : `${Math.round(celsiusToFahrenheit(currentWeather.main.temp_min))}° F / ${Math.round(celsiusToFahrenheit(currentWeather.main.temp_max))}° F`}</p>
+        )}
+      </div>
     </div>
+  </div>
+  <div className="my-5">
+    <div className="bg-darkblue rounded-xl p-8 flex flex-col justify-between">
+      <div className="mx-4">
+        <span className='font-bold text-xl'> {currentWeather.weather[0].description.charAt(0).toUpperCase() + currentWeather.weather[0].description.slice(1).toLowerCase()}</span>
+        <img
+          src={`/images/${currentWeather.weather[0].description}.svg`}
+          alt={currentWeather.weather[0].description}
+          className="w-20 h-20 mx-auto"
+        />
+        <p className='text-gray-150 font-bold'>Feels like: {currentWeather.main.feels_like} °C</p>
+      </div>
     </div>
-    
+  </div>
+</div>
 
       <div className="my-10">
         <h3 className="text-2xl font-bold mb-5">Today's Highlights</h3>

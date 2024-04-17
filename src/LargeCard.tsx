@@ -1,4 +1,3 @@
-// LargeCard.tsx
 import React from "react";
 
 interface LargeCardProps {
@@ -17,7 +16,11 @@ const LargeCard: React.FC<LargeCardProps> = ({ title, num, desc, min, max, child
         <h4 className="text-white text-xl font-semibold">{title}</h4>
         <p className="text-gray-250">{desc}</p>
         <p className="text-gray-250 text-3xl mt-4 mb-2">{num}</p>
-        {min && max && <p className="text-gray-250 font-bold">{`${min}° C / ${max}°`} C</p>} {/* Display min/max if provided */}
+        {min && max && (
+          <p className="text-gray-250 font-bold sm:text-sm md:text-base lg:text-lg xl:text-xl">
+            {`${min}° C / ${max}° C`}
+          </p>
+        )} {/* Display min/max if provided */}
       </div>
       {children}
     </div>
