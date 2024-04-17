@@ -45,19 +45,20 @@ const SearchLocation: React.FC<SearchLocationProps> = ({ onClose }) => {
         </button>
       </div>
 
-      <div className="flex my-5 space-x-4">
-        <input
-          type="text"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="border border-gray-400 bg-transparent p-3 flex-grow text-gray-150 focus:outline-none"
-          placeholder="Enter location/zip code"
-        />
-        <button className="bg-blue-500 text-white py-3 px-5 rounded hover:bg-blue-600 focus:outline-none">
-          <Link to={`/${searchTerm}`}>
-            <p>Search</p>
-          </Link>
-        </button>
-      </div>
+      <div className="flex flex-col md:flex-row items-center md:items-stretch my-5 md:space-x-4">
+  <input
+    type="text"
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="border border-gray-400 bg-transparent p-3 flex-grow text-gray-150 focus:outline-none"
+    placeholder="Enter location/zip code"
+  />
+  <button className="bg-blue-500 text-white py-3 px-5 rounded hover:bg-blue-600 focus:outline-none md:w-auto">
+    <Link to={`/${searchTerm}`}>
+      <p>Search</p>
+    </Link>
+  </button>
+</div>
+
 
       <div className="overflow-auto max-h-[680px]">
         <table className="table-auto w-full">
